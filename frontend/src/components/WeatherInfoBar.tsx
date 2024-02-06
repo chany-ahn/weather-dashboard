@@ -1,18 +1,19 @@
+import "./WeatherInfoBar.css";
+
 function WeatherInfoBar({ temp, precip, wind }) {
   return (
     <>
-      <div>
-        <h2>Temperature</h2>
-        {temp}
+      <div className="item">
+        <h5>Temperature</h5>
+        <p>{temp}&deg;C</p>
       </div>
-      <div>
-        <h2>Precipitation</h2>
-        {precip}
+      <div className="item">
+        <h5>Precipitation</h5>
+        <p>{precip}mm</p>
       </div>
-
-      <div>
-        <h2>Wind</h2>
-        {wind}
+      <div className="item">
+        <h5>Wind</h5>
+        <p>{wind}kph</p>
       </div>
     </>
   );
