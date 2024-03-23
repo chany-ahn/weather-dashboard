@@ -1,11 +1,12 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
+import "./styles/Graph.css";
+
 function Graph({ tabName, chartData }) {
   return (
     <>
       <div className="chart-container">
-        <h2>{tabName}</h2>
         <Line
           data={chartData}
           options={{

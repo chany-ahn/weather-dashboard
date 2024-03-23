@@ -1,20 +1,17 @@
-import "./WeatherInfoBar.css";
+import "./styles/WeatherInfoBar.css";
 
-function WeatherInfoBar({ temp, precip, wind }) {
+function WeatherInfoBar({ contents }) {
   return (
     <>
-      <div className="item">
-        <h5>Temperature</h5>
-        <p>{temp}&deg;C</p>
-      </div>
-      <div className="item">
-        <h5>Precipitation</h5>
-        <p>{precip}mm</p>
-      </div>
-      <div className="item">
-        <h5>Wind</h5>
-        <p>{wind}kph</p>
-      </div>
+      <ul>
+        {Object.keys(contents).map((key) => {
+          return (
+            <li className="item">
+              <b>{key}</b>: {contents[key]}
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 }

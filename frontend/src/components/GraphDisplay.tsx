@@ -43,7 +43,7 @@ function GraphDisplay({ hourlyWeatherData }) {
 
   return (
     <>
-      <div className="card">
+      <div className="card text-center">
         <ul className="nav nav-tabs" id="myTab" role="tablist">
           {tabs}
         </ul>
