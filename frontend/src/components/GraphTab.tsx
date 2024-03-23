@@ -16,7 +16,7 @@ function GraphTab({ tabName, activeTab, setActiveTab }) {
         aria-selected="true"
         onClick={handleClick}
       >
-        {tabName}
+        {tabName.charAt(0).toUpperCase() + tabName.substr(1).toLowerCase()}
       </button>
     </li>
   );
