@@ -6,7 +6,7 @@ function WeatherInfoBar({ contents }) {
       <ul>
         {Object.keys(contents).map((key) => {
           return (
-            <li className="item">
+            <li className="item" key={key}>
               <b>{key}</b>: {contents[key]}
             </li>
           );

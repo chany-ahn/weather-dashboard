@@ -1,12 +1,14 @@
+import React from "react";
+
 import "./App.css";
-import WeatherDisplay from "./components/WeatherDisplay.tsx";
+import WeatherDashboard from "./components/WeatherDashboard.tsx";
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js";
+
+Chart.register(CategoryScale);
 
 function App() {
-  return (
-    <>
-      <WeatherDisplay />
-    </>
-  );
+  return <WeatherDashboard />;
 }
 
 export default App;

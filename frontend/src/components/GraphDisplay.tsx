@@ -16,6 +16,7 @@ function GraphDisplay({ hourlyWeatherData }) {
       tabName={tabName}
       activeTab={activeTab}
       setActiveTab={setActiveTab}
+      key={tabName}
     />
   ));
 
