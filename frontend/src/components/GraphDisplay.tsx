@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import GraphTab from "./GraphTab.tsx";
 import GraphTabContents from "./GraphTabContents.tsx";
 
+import "./styles/GraphContents.css";
+
 function GraphDisplay({ hourlyWeatherData }) {
   const [activeTab, setActiveTab] = useState("temperature");
 
@@ -44,11 +46,11 @@ function GraphDisplay({ hourlyWeatherData }) {
 
   return (
     <>
-      <div className="card text-center">
+      <div className="card text-center graph-container">
         <ul className="nav nav-tabs" id="myTab" role="tablist">
           {tabs}
         </ul>
-        <div className="tab-content" id="myTabContent">
+        <div className="tab-content chart-container" id="myTabContent">
           <GraphTabContents
             tabName="temperature"
             activeTab={activeTab}

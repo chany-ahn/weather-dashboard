@@ -3,7 +3,7 @@ import React from "react";
 import CurrentWeatherDisplay from "./CurrentWeatherDisplay.tsx";
 import WeatherDisplay from "./WeatherDisplay.tsx";
 import WeatherImage from "./WeatherImage.tsx";
-import "./styles/WeatherDashboard.css";
+import "./styles/WeatherCard.css";
 
 const getReadableDate = (dateString: string) => {
   const months = [
@@ -46,7 +46,7 @@ function WeatherCard({ weatherData, setHourlyData }) {
   return (
     <>
       <div
-        className="col"
+        className="col weatherCard"
         onClick={() => {
           changeGraphDashboardData(weatherData, setHourlyData);
         }}
