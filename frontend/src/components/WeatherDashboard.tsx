@@ -4,8 +4,6 @@ import { getDashboardData } from "../controllers/WeatherApiController.ts";
 import GraphDisplay from "./GraphDisplay.tsx";
 import WeatherCard from "./WeatherCard.tsx";
 
-import "./styles/WeatherDashboard.css";
-
 function WeatherDashboard() {
   const [dashboardData, setDashboardData] = useState({});
   const [curHourlyData, setCurHourlyData] = useState([]);

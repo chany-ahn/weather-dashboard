@@ -51,9 +51,7 @@ function WeatherCard({ weatherData, setHourlyData }) {
           changeGraphDashboardData(weatherData, setHourlyData);
         }}
       >
-        <header className="dateHeader">
-          {getReadableDate(weatherData.date)}
-        </header>
+        <h4 className="dateHeader">{getReadableDate(weatherData.date)}</h4>
         <div className="weather-contents" key={weatherData.date}>
           <WeatherImage
             weatherCondition={
