@@ -9,11 +9,18 @@ function Graph({ tabName, chartData }) {
         options={{
           plugins: {
             title: {
-              display: true,
-              text: "Today's " + tabName,
+              display: false,
             },
             legend: {
               display: false,
+            },
+          },
+          scales: {
+            x: {
+              grid: { color: "rgba(238, 238, 238,0.2)" },
+            },
+            y: {
+              grid: { color: "rgba(238, 238, 238,0.2)" },
             },
           },
         }}

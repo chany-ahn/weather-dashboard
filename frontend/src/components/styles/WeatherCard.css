@@ -15,5 +15,6 @@
 
 .weatherCard:hover {
   border: 3px solid #64ccc5;
+  background: #176b87;
   transform: scale(1.1);
 }

@@ -35,7 +35,12 @@ const getReadableDate = (dateString: string) => {
 };
 
 const dateIsToday: boolean = (date: string) => {
-  return date === new Date().toISOString().split("T")[0];
+  return (
+    date ===
+    new Date()
+      .toLocaleString("en-US", { timeZone: "America/New_York" })
+      .split(", ")[0]
+  );
 };
 
 const changeGraphDashboardData = (weatherData, setHourlyData) => {

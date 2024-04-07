@@ -25,19 +25,13 @@ function GraphDisplay({ hourlyWeatherData }) {
   const chartData = {};
   Object.entries(tabProperties).forEach(([tabName, tabProp]) => {
     chartData[tabName] = {
-      labels: hourlyWeatherData.map((data) => data.time),
+      labels: hourlyWeatherData.map((data) => data.time.split(" ")[1]),
       datasets: [
         {
-          label: "Temperature (\u00B0C)",
+          label: tabName,
           data: hourlyWeatherData.map((data) => data[tabProp]),
-          backgroundColor: [
-            "rgba(75,192,192,1)",
-            "&quot;#ecf0f1",
-            "#50AF95",
-            "#f3ba2f",
-            "#2a71d0",
-          ],
-          borderColor: "black",
+          backgroundColor: ["rgba(75,192,192,1)"],
+          borderColor: "#64CCC5",
           borderWidth: 2,
         },
       ],
@@ -46,10 +40,10 @@ function GraphDisplay({ hourlyWeatherData }) {
 
   return (
     <>
-      <div className="card text-center graph-container">
-        <ul className="nav nav-tabs" id="myTab" role="tablist">
-          {tabs}
-        </ul>
+      <div className="graph-container">
+        <div className="container-fluid">
+          <div className="row">{tabs}</div>
+        </div>
         <div className="tab-content chart-container" id="myTabContent">
           <GraphTabContents
             tabName="temperature"
