@@ -47,16 +47,19 @@ function GraphDisplay({ hourlyWeatherData }) {
         <div className="tab-content chart-container" id="myTabContent">
           <GraphTabContents
             tabName="temperature"
+            units="&deg;C"
             activeTab={activeTab}
             chartData={chartData["temperature"]}
           />
           <GraphTabContents
             tabName="precipitation"
+            units="mm"
             activeTab={activeTab}
             chartData={chartData["precipitation"]}
           />
           <GraphTabContents
             tabName="wind"
+            units="kph"
             activeTab={activeTab}
             chartData={chartData["wind"]}
           />
