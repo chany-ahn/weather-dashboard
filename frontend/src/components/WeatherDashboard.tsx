@@ -14,7 +14,7 @@ function WeatherDashboard() {
     const getData = async () => {
       const data = await getDashboardData();
       setDashboardData(data);
-      setCurHourlyData(data.currentDay.hour);
+      setCurHourlyData([data.currentDay.hour, data.currentDay.date]);
     };
     getData();
   }, []);
@@ -35,6 +35,7 @@ function WeatherDashboard() {
             return (
               <WeatherCard
                 weatherData={data}
+                activeCardDate={curHourlyData[1]}
                 setHourlyData={setCurHourlyData}
                 key={data.date}
               ></WeatherCard>
@@ -43,7 +44,7 @@ function WeatherDashboard() {
         </div>
       </div>
       <div className="graph-display">
-        <GraphDisplay hourlyWeatherData={curHourlyData} />
+        <GraphDisplay hourlyWeatherData={curHourlyData[0]} />
       </div>
     </>
   );

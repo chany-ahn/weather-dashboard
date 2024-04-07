@@ -44,14 +44,17 @@ const dateIsToday: boolean = (date: string) => {
 };
 
 const changeGraphDashboardData = (weatherData, setHourlyData) => {
-  setHourlyData(weatherData.hour);
+  setHourlyData([weatherData.hour, weatherData.date]);
 };
 
-function WeatherCard({ weatherData, setHourlyData }) {
+function WeatherCard({ weatherData, activeCardDate, setHourlyData }) {
   return (
     <>
       <div
-        className="col weatherCard"
+        className={
+          "col weatherCard" +
+          (activeCardDate === weatherData.date ? " active-card" : "")
+        }
         onClick={() => {
           changeGraphDashboardData(weatherData, setHourlyData);
         }}

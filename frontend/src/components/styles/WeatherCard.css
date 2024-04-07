@@ -13,6 +13,11 @@
   color: #eeeeee;
 }
 
+.active-card {
+  border: 3px solid #64ccc5;
+  background: #176b87;
+}
+
 .weatherCard:hover {
   border: 3px solid #64ccc5;
   background: #176b87;
