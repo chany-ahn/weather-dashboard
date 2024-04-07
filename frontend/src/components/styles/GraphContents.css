@@ -1,0 +1,15 @@
+.graph-container {
+  height: 70%;
+  width: 70%;
+  border: 2px solid #64ccc5;
+  padding: 10px;
+}
+
+.chart-container {
+  background-color: #053b50;
+}
+
+.nav {
+  background-color: #053b50;
+  font-color: #eeeeee;
+}

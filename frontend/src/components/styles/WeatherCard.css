@@ -1,0 +1,25 @@
+.weather-contents {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 0px;
+}
+
+.weatherCard {
+  border: 3px solid #176b87;
+  border-radius: 30px;
+  margin: 2.5em;
+  transition: all 0.3s ease;
+  color: #eeeeee;
+}
+
+.active-card {
+  border: 3px solid #64ccc5;
+  background: #176b87;
+}
+
+.weatherCard:hover {
+  border: 3px solid #64ccc5;
+  background: #176b87;
+  transform: scale(1.1);
+}

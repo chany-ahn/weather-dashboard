@@ -3,7 +3,7 @@ import React from "react";
 import CurrentWeatherDisplay from "./CurrentWeatherDisplay.tsx";
 import WeatherDisplay from "./WeatherDisplay.tsx";
 import WeatherImage from "./WeatherImage.tsx";
-import "./styles/WeatherDashboard.css";
+import "./styles/WeatherCard.css";
 
 const getReadableDate = (dateString: string) => {
   const months = [
@@ -35,25 +35,31 @@ const getReadableDate = (dateString: string) => {
 };
 
 const dateIsToday: boolean = (date: string) => {
-  return date === new Date().toISOString().split("T")[0];
+  return (
+    date ===
+    new Date()
+      .toLocaleString("en-US", { timeZone: "America/New_York" })
+      .split(", ")[0]
+  );
 };
 
 const changeGraphDashboardData = (weatherData, setHourlyData) => {
-  setHourlyData(weatherData.hour);
+  setHourlyData([weatherData.hour, weatherData.date]);
 };
 
-function WeatherCard({ weatherData, setHourlyData }) {
+function WeatherCard({ weatherData, activeCardDate, setHourlyData }) {
   return (
     <>
       <div
-        className="col"
+        className={
+          "col weatherCard" +
+          (activeCardDate === weatherData.date ? " active-card" : "")
+        }
         onClick={() => {
           changeGraphDashboardData(weatherData, setHourlyData);
         }}
       >
-        <header className="dateHeader">
-          {getReadableDate(weatherData.date)}
-        </header>
+        <h4 className="dateHeader">{getReadableDate(weatherData.date)}</h4>
         <div className="weather-contents" key={weatherData.date}>
           <WeatherImage
             weatherCondition={

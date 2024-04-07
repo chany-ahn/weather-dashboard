@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import GraphTab from "./GraphTab.tsx";
 import GraphTabContents from "./GraphTabContents.tsx";
 
+import "./styles/GraphContents.css";
+
 function GraphDisplay({ hourlyWeatherData }) {
   const [activeTab, setActiveTab] = useState("temperature");
 
@@ -23,19 +25,13 @@ function GraphDisplay({ hourlyWeatherData }) {
   const chartData = {};
   Object.entries(tabProperties).forEach(([tabName, tabProp]) => {
     chartData[tabName] = {
-      labels: hourlyWeatherData.map((data) => data.time),
+      labels: hourlyWeatherData.map((data) => data.time.split(" ")[1]),
       datasets: [
         {
-          label: "Temperature (\u00B0C)",
+          label: tabName,
           data: hourlyWeatherData.map((data) => data[tabProp]),
-          backgroundColor: [
-            "rgba(75,192,192,1)",
-            "&quot;#ecf0f1",
-            "#50AF95",
-            "#f3ba2f",
-            "#2a71d0",
-          ],
-          borderColor: "black",
+          backgroundColor: ["rgba(75,192,192,1)"],
+          borderColor: "#64CCC5",
           borderWidth: 2,
         },
       ],
@@ -44,23 +40,26 @@ function GraphDisplay({ hourlyWeatherData }) {
 
   return (
     <>
-      <div className="card text-center">
-        <ul className="nav nav-tabs" id="myTab" role="tablist">
-          {tabs}
-        </ul>
-        <div className="tab-content" id="myTabContent">
+      <div className="graph-container">
+        <div className="container-fluid">
+          <div className="row">{tabs}</div>
+        </div>
+        <div className="tab-content chart-container" id="myTabContent">
           <GraphTabContents
             tabName="temperature"
+            units="&deg;C"
             activeTab={activeTab}
             chartData={chartData["temperature"]}
           />
           <GraphTabContents
             tabName="precipitation"
+            units="mm"
             activeTab={activeTab}
             chartData={chartData["precipitation"]}
           />
           <GraphTabContents
             tabName="wind"
+            units="kph"
             activeTab={activeTab}
             chartData={chartData["wind"]}
           />

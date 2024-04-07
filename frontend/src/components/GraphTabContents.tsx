@@ -1,8 +1,8 @@
 import Graph from "./Graph.tsx";
 
-function GraphTabContents({ tabName, activeTab, chartData }) {
+function GraphTabContents({ tabName, units, activeTab, chartData }) {
   return tabName === activeTab ? (
-    <Graph tabName={tabName} chartData={chartData} />
+    <Graph tabName={tabName} units={units} chartData={chartData} />
   ) : null;
 }
 
