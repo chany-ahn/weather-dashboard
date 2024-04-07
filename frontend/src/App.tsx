@@ -11,7 +11,12 @@ function App() {
   useLayoutEffect(() => {
     document.body.style.background = "#053B50";
   });
-  return <WeatherDashboard />;
+  return (
+    <>
+      <h1 className="dashboard-heading">Weather Dashboard</h1>
+      <WeatherDashboard />
+    </>
+  );
 }
 
 export default App;
